@@ -167,3 +167,178 @@ body {
   border: 1px solid transparent; /* wymagane do pokazania gradientu */
 }
 
+
+/*Offer section*/
+.offer {
+  padding: 2rem 1rem;
+  background-color: #F5F5F5;
+  font-family: 'Inter', sans-serif;
+  color: #1A1A1A;
+}
+
+.offer h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.offer #description {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #4A4A4A;
+}
+
+/* Accordion */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordion-item {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Arrow icon (symbolizowane przez CSS, możesz też użyć SVG) */
+.accordion-header::after {
+  content: "⌄";
+  font-size: 1.2rem;
+  color: #7B1E1E;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header::after {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  font-size: 0.85rem;
+  color: #333;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 400px; /* dopasuj do treści */
+  padding-bottom: 1rem;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta p {
+  display: inline-block;
+  background-color: #7B1E1E;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta p:hover {
+  background-color: #5c1818;
+}
+
+/*Methods*/
+.methods-hover {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.methods-item {
+  width: 220px;
+  min-height: 220px;
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.methods-item:hover {
+  transform: scale(1.03);
+}
+
+.methods-hidden, .methods-open {
+  padding: 1rem;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.methods-open {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.methods-item:hover .methods-open {
+  opacity: 1;
+}
+
+.methods-item:hover .methods-hidden {
+  opacity: 0;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.5rem auto;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* 2 na rząd na mobile */
+@media (max-width: 768px) {
+  .methods-item {
+    width: 45%;
+  }
+}
+
+/* 1 na rząd na bardzo małych ekranach */
+@media (max-width: 480px) {
+  .methods-item {
+    width: 100%;
+  }
+}

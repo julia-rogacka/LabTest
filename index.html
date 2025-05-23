@@ -96,12 +96,14 @@
             </div>
         </div>
 
-                <div class="methods">
+        <div class="methods"> 
             <h3>Metody badań</h3>
             <p id="description"></p>
-            <div class="methods-hover">
+                <div class="methods-hover">
+
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div> <!-- Tu wrzuć ikonę -->
                         <p>Badania Wizualne (VT)</p>
                     </div>
                     <div class="methods-open">
@@ -111,6 +113,7 @@
 
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div>
                         <p>Badania Penetracyjne (PT)</p>
                     </div>
                     <div class="methods-open">
@@ -120,6 +123,7 @@
 
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div>
                         <p>Badania Prądami Wirowymi (ET)</p>
                     </div>
                     <div class="methods-open">
@@ -129,6 +133,7 @@
 
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div>
                         <p>Badania Radiograficzne (RT)</p>
                     </div>
                     <div class="methods-open">
@@ -138,6 +143,7 @@
 
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div>
                         <p>Badania Magnetyczno-proszkowe (MT)</p>
                     </div>
                     <div class="methods-open">
@@ -147,6 +153,7 @@
 
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div>
                         <p>Badania Utradźwiękowe (UT)</p>
                     </div>
                     <div class="methods-open">
@@ -156,21 +163,47 @@
 
                 <div class="methods-item">
                     <div class="methods-hidden">
+                        <div class="icon"></div>
                         <p>Badania Ultradźwiękowe Phased Array (UT PA)</p>
                     </div>
-                    <div class="methods-open">
-                        <p>Nowoczesna odmiana badań UT wykorzystująca matryce przetworników z możliwością elektronicznego sterowania wiązką.</p>
-                    </div>
+                <div class="methods-open">
+                    <p>Nowoczesna odmiana badań UT wykorzystująca matryce przetworników z możliwością elektronicznego sterowania wiązką.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="call">
-                <p id="call-us">Chcesz dowiedzieć się więcej?</p>
-                <div class="cta">
-                    <p id="cta">Skontaktuj się z nami</p>
-                </div>
+        <div class="call">
+            <p id="call-us">Chcesz dowiedzieć się więcej?</p>
+            <div class="cta">
+                <p id="cta">Skontaktuj się z nami</p>
             </div>
-        </div>>
+        </div>
+
+<footer class="footer">
+  <div class="footer-left">
+    <img src="logo.png" alt="LabTest" class="logo" />
+    <div class="contact">
+      <p><span class="icon">📍</span> ul. Adresadres 11/1<br />71-000 Szczecin</p>
+      <p><span class="icon">📞</span> +48 123 456 789</p>
+      <p><span class="icon">✉️</span> email@email.com</p>
+    </div>
+  </div>
+
+  <div class="footer-nav">
+    <ul>
+      <li><a href="o-nas.html">O nas</a></li>
+      <li><a href="certyfikaty.html">Certyfikaty</a></li>
+      <li><a href="realizacje.html">Realizacje</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-legal">
+    <p>LEGALSTUFF LEGALSTUFF LEGALSTUFF</p>
+  </div>
+</footer>
+
+
     </main>
 
 <script>
@@ -180,6 +213,15 @@
   hamburgerBtn.addEventListener('click', () => {
     mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
   });
+</script>
+
+<script>
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const item = header.parentElement;
+    item.classList.toggle('active');
+  });
+});
 </script>
 
 </body>
