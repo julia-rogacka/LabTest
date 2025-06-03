@@ -24,7 +24,7 @@ body {
 
 .mobile-menu .topbar {
   background-color: white;
-  height: 31px;
+  height: 45px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -40,7 +40,7 @@ body {
 }
 
 .mobile-menu .logo {
-  height: 20px;
+  height: 30px;
   margin-left: 10px;
 }
 
@@ -54,7 +54,7 @@ body {
 .hamburger_menu {
   display: none;
   position: fixed;
-  top: 31px;
+  top: 45px;
   left: 0;
   width: 100%;
   background-color: white;
@@ -74,9 +74,10 @@ body {
 
 .hamburger_menu a {
   display: block;
-  padding: 12px;
+  padding: 10px;
   text-decoration: none;
   color: #333;
+  font-size: 14px;
 }
 
 .hamburger_menu a:hover {
@@ -90,7 +91,7 @@ body {
 
 /* HERO SECTION */
 .hero {
-  padding: 2.5rem 0.6rem;
+  padding: 3rem 0.4rem;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -181,7 +182,7 @@ body {
 
 /*Offer section*/
 .offer {
-  padding: 2rem 1rem;
+  padding: 2rem 0.6rem;
   background-color: #F5F5F5;
   font-family: 'Inter', sans-serif;
   color: #1A1A1A;
@@ -416,3 +417,45 @@ footer {
   margin-top: 1.5rem;
   color: #666;
 }
+
+/*ABOUT*/
+.about-gradient {
+  background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  color: white;
+  text-align: left;
+  margin: 3rem 0.3rem 0 0.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-gradient h1 {
+  font-size: 1.7rem;
+  font-weight: 200;
+  margin: 0;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Open Sans', sans;
+}
+
+.about-container .first,
+.about-container .second {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-container .photo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
