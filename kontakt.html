@@ -28,6 +28,23 @@
         </div>
     </menu>
 
+    <div class="contact-gradient">
+        <h1>Kontakt</h1>
+    </div>
+
+        <div class="container-contact">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <p>Wyślij nam wiadomość</p>
+                <input type="hidden" name="access_key" value="d9711f72-e15d-4eed-87ea-4a23354ab957">
+                
+                <input type="text" name="name" placeholder="Imię i Nazwisko">
+                <input type="email" name="email" placeholder="Adres e-mail">
+                <textarea name="message" rows="12" placeholder="Napisz wiadomość"></textarea>
+                    
+                <button type="Submit">Wyślij</button>
+            </form>
+        </div>
+  
     <footer>
         <div class="footer-top">
             <img src="logo.png" alt="LabTest" class="footer-logo" />
@@ -56,5 +73,29 @@
 
         <p class="legal">© 2025 LabTest. Wszelkie prawa zastrzeżone.</p>
     </footer>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+  });
+</script>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+    
+                if (name === "" || email === "" || message === "") {
+                    alert("The field must be filled out");
+                    return false;
+                 }
+            }
+    </script>
 </body>
 </html>

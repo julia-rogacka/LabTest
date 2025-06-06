@@ -504,3 +504,80 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
 }
 
+/*KONTAKT*/
+.contact-gradient {
+  background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+  color: white;
+  text-align: left;
+  margin: 3rem 0.3rem 0 0.3rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-gradient h1 {
+  font-size: 1.7rem;
+  font-weight: 200;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem 1rem;
+}
+
+.container-contact form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f8f8f8;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-contact form p {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.container-contact input,
+.container-contact textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: #eeeeee;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+.container-contact textarea {
+  resize: vertical;
+}
+
+.container-contact button {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.75rem 2rem;
+  background-color: #9D2E30;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.container-contact button:hover {
+  background-color: #7a2223;
+}
