@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Warstwa_3" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 58.7 54.7">
+  <!-- Generator: Adobe Illustrator 29.6.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 207)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #970000;
+        stroke: #970000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <polygon points="31.1 18.5 26 13.4 29.8 9.7 34.8 14.8 31.1 18.5"/>
+  <polygon points="47.9 28.1 44.1 31.8 39.2 26.8 42.9 23.1 47.9 28.1"/>
+  <path d="M38.4,27.6l4.9,5-7,6.9c-5.1,5-13.2,4.9-18.2-.1s-4.9-13.2.1-18.2l7-6.9,5,5.1-5.6,5.6c-3,3-3.7,7.3-1.4,9.5,2.2,2.3,6.5,1.7,9.6-1.3l5.6-5.6Z"/>
+  <path class="st0" d="M18.2,39.5"/>
+  <path class="st0" d="M23,34.3"/>
+</svg>

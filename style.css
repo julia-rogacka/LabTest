@@ -9,6 +9,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  margin: 0 0.3rem;
 }
 
 
@@ -22,12 +23,16 @@ html, body {
 .mobile-menu .topbar {
   background-color: white;
   height: 45px;
-  width: 100%;
+  width: calc(100% - 0.6rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 12px;
+  margin: 0.3rem;
   border-bottom: 1px solid #ccc;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -52,13 +57,15 @@ html, body {
   display: none;
   position: fixed;
   top: 45px;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 75%;
   background-color: white;
   z-index: 999;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 0 0 0 2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .hamburger_menu ul {
@@ -71,7 +78,7 @@ html, body {
 
 .hamburger_menu a {
   display: block;
-  padding: 10px;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
   color: #333;
   font-size: 14px;
@@ -88,7 +95,7 @@ html, body {
 
 /* HERO SECTION */
 .hero {
-  padding: 3rem 0.4rem;
+  padding: 3.3rem 0 1.5rem 0;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -163,7 +170,7 @@ html, body {
 }
 
 .key_words p {
-  font-size: 0.55rem;
+  font-size: 0.45rem;
   font-weight: 200;
   padding: 0.3rem 0.8rem;
   border-radius: 33px;
@@ -176,18 +183,56 @@ html, body {
   border: 1px solid transparent; /* wymagane do pokazania gradientu */
 }
 
+.gallery {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0.5rem 0.3rem 1.5rem 0.3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 0.3rem;
+  width: calc(200%); /* bo powielamy zdjęcia */
+  animation: scrollGallery 30s linear infinite;
+}
+
+.gallery-track img {
+  width: 50%; /* 4 obrazki na 100% szerokości, możesz dopasować */
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 33px;
+}
+
+@keyframes scrollGallery {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 /*Offer section*/
 .offer {
-  padding: 2rem 0.6rem;
-  background-color: #F5F5F5;
-  font-family: 'Inter', sans-serif;
+  border-radius: 33px;
+  font-family: 'Montserrat', sans-serif;
   color: #1A1A1A;
+  margin-bottom: 1.5rem; 
 }
 
 .offer h2 {
-  text-align: center;
+  background: linear-gradient(90deg, #9D2E30, #3d519d);
+  padding: 0.2rem 0.5rem;
+  width: 100%;
+  border-radius: 33px;
+  text-align: left;
+  color: #FFFFFF;
   font-size: 1.5rem;
+  font-weight: 200;
   margin-bottom: 0.5rem;
   font-family: 'Montserrat', sans-serif;
 }
@@ -204,12 +249,13 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0 0.6rem;
 }
 
 .accordion-item {
   background-color: white;
   border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -217,15 +263,15 @@ html, body {
 .accordion-header {
   width: 100%;
   text-align: left;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   font-size: 0.95rem;
   font-weight: 500;
-  background-color: white;
   border: none;
   outline: none;
   cursor: pointer;
   position: relative;
-  border-radius: 20px;
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -234,7 +280,7 @@ html, body {
 
 /* Arrow icon (symbolizowane przez CSS, możesz też użyć SVG) */
 .accordion-header::after {
-  content: "⌄";
+  content: "+";
   font-size: 1.2rem;
   color: #7B1E1E;
   transform: rotate(0deg);
@@ -252,6 +298,11 @@ html, body {
   font-size: 0.85rem;
   color: #333;
   transition: max-height 0.3s ease;
+  background: rgba(125, 152, 182, 0.2);
+}
+
+.accordion-content p {
+  padding-top: 1rem;
 }
 
 .accordion-item.active .accordion-content {
@@ -262,13 +313,13 @@ html, body {
 /* CTA */
 .cta {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: 'Montserrat', sans-serif;
 }
 
 .cta p {
   display: inline-block;
-  background-color: #7B1E1E;
+  background: linear-gradient(90deg, #9D2E30, #3d519d);
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
@@ -284,43 +335,70 @@ html, body {
 }
 
 /*Methods*/
-.methods-hover {
+h3 {
+  background: linear-gradient(90deg, #9D2E30, #3d519d);
+  padding: 0.2rem 0.5rem;
+  width: 100%;
+  border-radius: 33px;
+  text-align: left;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.methods-columns {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.methods-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Responsive (dwie kolumny też na telefonie) */
+@media (max-width: 768px) {
+  .methods-columns {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .methods-column {
+    width: 50%;
+  }
 }
 
 .methods-item {
-  width: 220px;
-  min-height: 220px;
-  position: relative;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.methods-item:hover {
-  transform: scale(1.03);
-}
-
-.methods-hidden, .methods-open {
-  padding: 1rem;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  height: 140px;
+  padding: 0.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.methods-hidden,
+.methods-open {
+  padding: 1rem;
   transition: opacity 0.3s ease;
 }
 
 .methods-open {
   opacity: 0;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -335,26 +413,24 @@ html, body {
 }
 
 .m-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 0.5rem auto;
-  background-color: #eee;
-  border-radius: 50%;
-  align-items: center;
+  width:45px;
+  height:45px;
 }
 
-/* 2 na rząd na mobile */
-@media (max-width: 768px) {
-  .methods-item {
-    width: 45%;
-  }
+.m-call {
+  grid-column: 1 / -1;   /* CTA zajmuje całą szerokość grida */
+  margin: 1.5rem 0.5rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+.m-call {
+  margin: 1.5rem 0.5rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* 1 na rząd na bardzo małych ekranach */
-@media (max-width: 480px) {
-  .methods-item {
-    width: 100%;
-  }
+.call-us {
+  font-size: 1.5rem;
 }
 
 /*Footer*/
@@ -365,6 +441,8 @@ footer {
   font-size: 14px;
   color: #333;
   font-family: 'Montserrat', sans-serif;
+  clear: both;         /* Na wszelki wypadek */
+  width: 100%;
 }
 
 .footer-top {
@@ -399,13 +477,15 @@ footer {
 }
 
 .footer-right ul {
-  list-style: none;
-  padding: 0;
+  list-style: none;  
+  
 }
 
 .footer-right ul li a {
   text-decoration: none;
-  color: #333;
+  color: #333;   
+  padding-bottom: 0.5rem;
+  display: block;
 }
 
 .legal {
@@ -419,7 +499,7 @@ footer {
 .about-gradient {
   background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
   border-radius: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.2rem 1rem;
   color: white;
   text-align: left;
   margin: 3rem 0.3rem 0 0.3rem;
@@ -436,11 +516,11 @@ footer {
 .about-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  font-family: 'Open Sans', sans;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .about-container .first,
@@ -461,7 +541,7 @@ footer {
 .certificates-gradient {
   background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
   border-radius: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.2rem 1rem;
   color: white;
   text-align: left;
   margin: 3rem 0.3rem 0 0.3rem;
@@ -508,7 +588,7 @@ footer {
 .contact-gradient {
   background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
   border-radius: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.2rem 1rem;
   color: white;
   text-align: left;
   margin: 3rem 0.3rem 0 0.3rem;
