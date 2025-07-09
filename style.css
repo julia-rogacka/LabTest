@@ -9,6 +9,7 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   margin: 0 0.3rem;
+  hyphens: auto;
 }
 
 
@@ -312,6 +313,7 @@ html, body {
   color: #333;
   transition: max-height 0.3s ease;
   background: rgba(125, 152, 182, 0.2);
+  text-align: justify;
 }
 
 .accordion-content p {
@@ -620,7 +622,7 @@ footer {
 }
 
 .certificate-content {
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   color: #333;
@@ -629,20 +631,32 @@ footer {
 }
 
 .certificate-content h2 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin: 1rem 0 1rem 0;
   color: #1d253f;
 }
 
 .certificate-content p {
   margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.certificate-slogan h3 {
+  background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  color: white;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 400;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .certificate-img {
   max-width: 90%;
   height: auto;
   display: block;
-  margin: 0.4rem auto;
+  margin: 1.5rem;
   border: 2px solid #ccc; 
   border-radius: 0.5rem; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
