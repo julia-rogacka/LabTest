@@ -6,7 +6,6 @@
 }
 
 html, body {
-  margin: 0;
   padding: 0;
   overflow-x: hidden;
   margin: 0 0.3rem;
@@ -31,7 +30,7 @@ html, body {
   margin: 0.3rem;
   border-bottom: 1px solid #ccc;
   border-radius: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: fixed;
   top: 0;
@@ -56,15 +55,16 @@ html, body {
 .hamburger_menu {
   display: none;
   position: fixed;
-  top: 45px;
+  top: 50px;
   right: 0;
-  width: 75%;
-  background-color: white;
+  width: 50%;
+  margin-right: 0.7rem;
+  background: rgba(255, 255, 255, 0.95);
   z-index: 999;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-radius: 0 0 0 2rem;
+  border-radius: 0 0 2rem 2rem;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -72,8 +72,8 @@ html, body {
   list-style: none;
 }
 
-.hamburger_menu li {
-  border-bottom: 1px solid #eee;
+.hamburger_menu li:not(:last-child) {
+  border-bottom: 0.3rem solid rgba(255, 255, 255, 0.4);
 }
 
 .hamburger_menu a {
@@ -111,7 +111,7 @@ html, body {
 .hero-gradient h1 {
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 
 .hero-gradient #slogan {
@@ -127,6 +127,18 @@ html, body {
   margin-top: 1rem;
 }
 
+.hero-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-icon {
+  font-size: 3rem;
+  font-weight: 100;
+  margin-right: 1rem;
+}
+
 /* references (lewa strona) */
 .references {
   flex: 1;
@@ -138,11 +150,13 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.references p {
+.references a {
   background: #f5f5f5;
   border-radius: 999px;
   padding: 0.2rem 0.8rem;
   font-size: 1rem;
+  text-decoration: none;
+  color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center; /* <--- to jest kluczowe */
@@ -170,7 +184,7 @@ html, body {
 }
 
 .key_words p {
-  font-size: 0.45rem;
+  font-size: 0.55rem;
   font-weight: 200;
   padding: 0.3rem 0.8rem;
   border-radius: 33px;
@@ -215,7 +229,6 @@ html, body {
   }
 }
 
-
 /*Offer section*/
 .offer {
   border-radius: 33px;
@@ -226,7 +239,7 @@ html, body {
 
 .offer h2 {
   background: linear-gradient(90deg, #9D2E30, #3d519d);
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 1rem;
   width: 100%;
   border-radius: 33px;
   text-align: left;
@@ -319,8 +332,11 @@ html, body {
 
 .cta p {
   display: inline-block;
-  background: linear-gradient(90deg, #9D2E30, #3d519d);
-  color: white;
+  background: 
+    linear-gradient(#fff, #fff) padding-box, /* środek */
+    linear-gradient(90deg, #9D2E30, #3d519d) border-box; /* obramowanie */
+  border: 0.2rem solid transparent; 
+  color: #333;
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
   font-weight: 500;
@@ -330,14 +346,10 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.cta p:hover {
-  background-color: #5c1818;
-}
-
 /*Methods*/
 h3 {
   background: linear-gradient(90deg, #9D2E30, #3d519d);
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 1rem;
   width: 100%;
   border-radius: 33px;
   text-align: left;
@@ -350,9 +362,9 @@ h3 {
 
 .methods-columns {
   display: flex;
-  flex-direction: row;
   gap: 0.5rem;
   margin: 1rem 0;
+  flex-wrap: wrap;
 }
 
 .methods-column {
@@ -360,6 +372,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 0;
 }
 
 /* Responsive (dwie kolumny też na telefonie) */
@@ -373,6 +386,9 @@ h3 {
     width: 50%;
   }
 }
+.methods-hover {
+  display: content;
+}
 
 .methods-item {
   background: #fff;
@@ -381,10 +397,13 @@ h3 {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  height: 140px;
+  height: 160px;
   padding: 0.2rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
 }
 
 .methods-hidden,
@@ -393,15 +412,34 @@ h3 {
   transition: opacity 0.3s ease;
 }
 
+
+.methods-hidden {
+  z-index: 1;
+  background: white;
+  opacity: 1;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .methods-open {
   opacity: 0;
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  font-size: 14px;
+  padding: 0.5rem;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .methods-item:hover .methods-open {
@@ -433,15 +471,41 @@ h3 {
   font-size: 1.5rem;
 }
 
+.contact-us {
+  font-family: 'Montserrat', sans-serif;
+  margin: 3rem 0 1.5rem 0;;
+}
+
+.end-gradient {
+  background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
+  border-radius: 2rem;
+  padding: 2rem 1.5rem;
+  color: white;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#bold {
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+#regular {
+  font-size: 16px;
+  font-weight: 200;
+}
+
 /*Footer*/
 footer {
   padding: 2rem 1rem;
+  margin: 0;
   background-color: #f8f8f8;
   font-family: sans-serif;
   font-size: 14px;
   color: #333;
   font-family: 'Montserrat', sans-serif;
-  clear: both;         /* Na wszelki wypadek */
+  clear: both;         
   width: 100%;
 }
 
@@ -502,7 +566,7 @@ footer {
   padding: 0.2rem 1rem;
   color: white;
   text-align: left;
-  margin: 3rem 0.3rem 0 0.3rem;
+  margin: 3.3rem 0.3rem 0 0.3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -523,11 +587,11 @@ footer {
   font-family: 'Montserrat', sans-serif;
 }
 
-.about-container .first,
-.about-container .second {
+.about-container p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #333;
+
 }
 
 .about-container .photo {
@@ -544,7 +608,7 @@ footer {
   padding: 0.2rem 1rem;
   color: white;
   text-align: left;
-  margin: 3rem 0.3rem 0 0.3rem;
+  margin: 3.3rem 0.3rem 0 0.3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -591,7 +655,7 @@ footer {
   padding: 0.2rem 1rem;
   color: white;
   text-align: left;
-  margin: 3rem 0.3rem 0 0.3rem;
+  margin: 3.3rem 0.3rem 0 0.3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
