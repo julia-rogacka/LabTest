@@ -322,6 +322,20 @@ document.querySelectorAll('.accordion-header').forEach(header => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname.split("/").pop();
+  const links = document.querySelectorAll('.nav-links a, .hamburger_menu a');
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
 

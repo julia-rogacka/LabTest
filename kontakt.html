@@ -55,7 +55,7 @@
 
     <div class="contact-columns">
 
-      <img src="przykładowe-galeria.jpg" alt="Zdjęcie" class="contact-photo">
+      <img src="przykladowe-galeria.jpg" alt="Zdjęcie" class="contact-photo">
 
         <div class="container-contact">
             <form action="https://api.web3forms.com/submit" method="POST">
@@ -154,6 +154,20 @@
   hamburgerBtn.addEventListener('click', () => {
     mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
   });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname.split("/").pop();
+  const links = document.querySelectorAll('.nav-links a, .hamburger_menu a');
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath) {
+      link.classList.add('active');
+    }
+  });
+});
 </script>
 
 <script src="https://web3forms.com/client/script.js" async defer></script>

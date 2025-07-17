@@ -52,24 +52,22 @@
     </div>
 
     <div class="certificate-content">
-      <div class="certificate-right">
+      <div class="certificate-left">
         <h2>Certyfikat DNV</h2>
         <p>W naszej pracy stawiamy na najwyższe standardy jakości, bezpieczeństwa i rzetelności. Potwierdzeniem naszego profesjonalizmu jest certyfikat DNV – uznawany na całym świecie znak zgodności z międzynarodowymi normami w zakresie badań nieniszczących (NDT).</p>
         <p>Certyfikat ten gwarantuje, że nasz personel został odpowiednio przeszkolony, posiada wymagane doświadczenie oraz zdał egzaminy zgodne z międzynarodową normą ISO 9712. Daje to naszym klientom pewność, że wszystkie badania prowadzone są z zachowaniem najwyższych standardów branżowych – zarówno pod względem technicznym, jak i proceduralnym.</p>
       </div>  
-      <div class="certificate-left">
-        <img src="DNV-certificate.jpg" alt="certyfikat-dnv" class="certificate-img">
+      <div class="certificate-right">
+        <a href="DNV-certificate.jpg" class="lightbox">
+          <img src="DNV-certificate.jpg" alt="Opis" class="thumbnail">
+        </a>
       </div>
-
-
 
         <div class="certificate-slogan">
             <h3>Certyfikat DNV to dla nas nie tylko dokument – to zobowiązanie do ciągłego doskonalenia i odpowiedzialności za jakość.</h3>
         </div>
       
     </div>
-
-    
 
 <footer>
     <div class="footer-desktop">
@@ -119,7 +117,11 @@
   <p class="legal">© 2025 LabTest. Wszelkie prawa zastrzeżone.</p>
 </footer>
 
-    
+    <div id="lightboxModal" class="modal-lightbox">
+    <span class="close">&times;</span>
+    <img id="lightboxImage" src="" alt="Powiększone zdjęcie">
+    </div>
+
 
 <script>
   const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -129,5 +131,43 @@
     mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
   });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname.split("/").pop();
+  const links = document.querySelectorAll('.nav-links a, .hamburger_menu a');
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImage');
+    const closeBtn = modal.querySelector('.close');
+
+    document.querySelectorAll('.lightbox img').forEach(img => {
+        img.addEventListener('click', e => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+            modalImg.src = img.parentElement.href; // duży obraz z linka
+        });
+    });
+
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+
+    modal.addEventListener('click', e => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
+});
+</script>
+
+
 </body>
 </html>
