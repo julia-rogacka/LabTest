@@ -25,7 +25,7 @@ html, body {
 
 .mobile-menu .topbar {
   background-color: white;
-  height: 45px;
+  height: 5%;
   width: calc(100% - 0.6rem);
   display: flex;
   justify-content: space-between;
@@ -45,7 +45,7 @@ html, body {
 }
 
 .mobile-menu .logo {
-  height: 30px;
+  height: 40px;
   margin-left: 10px;
 }
 
@@ -99,7 +99,7 @@ html, body {
 /* Styl aktywnego linku */
 .nav-links a.active,
 .hamburger_menu a.active {
-  color: #9D2E30; 
+  color: #b93d3d; 
   font-weight: 600;
   position: relative;
   font-size: 1.1rem;
@@ -110,7 +110,7 @@ html, body {
 .nav-links a:active,
 .hamburger_menu a:active {
   transform: scale(0.96);
-  color: #9D2E30;
+  color: #b93d3d; 
   transition: transform 0.15s ease;
 }
 
@@ -554,14 +554,14 @@ h3 {
 /*Footer*/
 footer {
   padding: 1rem;
-  margin: 0;
   background-color: white;
   font-family: sans-serif;
   font-size: 14px;
   color: #333;
   font-family: 'Montserrat', sans-serif;
   clear: both;         
-  width: 100%;
+  width: calc(100% - 0.6rem);
+  margin: 0.3rem;
   height: auto;
   border-bottom: 1px solid #ccc;
   border-radius: 1rem;
@@ -569,7 +569,6 @@ footer {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  
 }
 
 .footer-top {
@@ -1255,60 +1254,68 @@ footer {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
-  .hamburger-icon {
-    display: none;
+  .logo {
+    height: 45px;
+  }
+
+  .mobile-menu .hamburger-icon,
+  .mobile-menu #mobileMenu {
+    display: none !important;
+  }
+
+  .mobile-menu .desktop-menu {
+    display: contents; 
   }
 
   .desktop-menu {
     display: flex;
-    justify-content: center;
     justify-self: center !important;
+    width: max-content;
   }
 
   .nav-links {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
-    align-items: center;
+    align-items: center !important;
     list-style: none;
     gap: 1.5rem;
-    margin: 0;
-    padding: 0;    
+    margin: 0 auto;
+    padding: 0.3rem;    
     background: #f1f1f1;  
     transition: background 0.3s ease;    
     border-radius: 2rem;
-    width: auto;
   }
 
   .nav-links li a {
     text-decoration: none;
-    padding: 0.4rem 1rem;
-    color: #000;
+    padding: 0.3rem 0.5rem;
+    color: #333;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif; 
   }
 
   .nav-links li a:hover {
-    background: #9D2E30;
+    background: #b93d3d; 
     border-radius: 33px;
-    color: #ccc;
+    color: #ffff;
   }
 
   .nav-links li a:active {
-    background: #9D2E30;
+    background: #b93d3d; 
     border-radius: 33px;
-    color: #ccc;
+    color: #FFFFFF;
   }
 
   .nav-icons {
     display: flex;
     gap: 1rem;
     padding: 0.2rem;
-    margin-left: 4rem;
+    justify-content: flex-end;
   }
 
   .nav-icon {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
   }
@@ -1404,15 +1411,14 @@ footer {
   }
 
   .references a {
-     background: #f5f5f5;
+    background: #f5f5f5;
     border-radius: 999px;
     padding: 0.4rem 1.6rem;
     font-size: 1.2rem;
     text-decoration: none;
     color: #333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.4); 
     height: 4rem;
-
     display: flex;   
     align-items: center;
     gap: 0.8rem;
@@ -1493,32 +1499,119 @@ footer {
   }
 
   /*FOOTER*/
+   /* ukryj zbędną kolumnę linków w desktopie */
   .footer-right {
-    display: none;
+    display: none !important;
   }
 
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: calc(100% - 0.6rem);
+    margin: 0.3rem;
+  }
+
+  /* Grid: logo | kontakt (adres+tel+mail) */
   .footer-desktop {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr; /* logo | reszta */
+    align-items: start;
+    column-gap: 2rem;
+    row-gap: 1rem;
+  }
+
+  /* logo siedzi w .footer-top -> kolumna 1 */
+  .footer-top {
+    grid-column: 1 / 2;
+    grid-row: 1;
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    height: 48px; /* dopasuj */
+    width: auto;
+    display: block;
+  }
+
+  /* schowaj tę mobilną sekcję z ikonami w desktopie (masz też social-icons-desktop gdzie indziej, jeśli chcesz użyć) */
+  .footer-top .social-icons {
+    display: none !important;
+  }
+
+  /* kontakt w .footer-columns -> kolumna 2 */
+  .footer-columns {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
     justify-content: space-between;
-    gap: 5rem;
+    align-items: center;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
   }
 
-  .social-icons {
-    display: none;
-  }
-
-  .social-icons-desktop {
-    display: flex;
-    align-items: flex-end;
-  }
-
+  /* .footer-left zawiera wszystkie elementy kontaktowe – ustawiamy je inline w rzędzie */
   .footer-left {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 5rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;   
+    width: 100%;
+    margin: 1rem;
+    padding: 0;
   }
+
+  .footer-left .footer-text {
+    white-space: nowrap;  
+    display: inline-flex;
+  }
+
+  .footer-left .footer-item {
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  /* adres ma 2 <p> – zamieniamy na inline, żeby układały się w jednej linii (lub zawijały razem) */
+  .footer-left .footer-text {
+    display: inline-flex;
+    flex-wrap: wrap;  /* zawinie się ładnie na węższych ekranach */
+    gap: 0.25rem;
+  }
+  .footer-left .footer-text p {
+    margin: 0;
+    display: inline;
+  }
+
+  /* pojedyncze <p> przy tel i mail */
+  .footer-left > .footer-item > p {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* legal pod całością — na szerokość */
+ .legal {
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
 
   /*KONTAKT*/
   .contact-photo {
@@ -1540,13 +1633,25 @@ footer {
 
   .container-contact {
     width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* wyśrodkowanie w pionie */
+    align-items: center; /* wyśrodkowanie w poziomie */
+    text-align: justify; /* wyjustowany tekst */
     padding: 2rem;
+    align-items: stretch;
+  }
+
+  .container-contact p {
+    text-align: justify; /* tekst wyjustowany */
+    width: 100%; /* żeby działało pełne justowanie */
   }
 
   .info-column {
-    display: block;
-    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: left; 
     width: 48%;
     font-family: 'Montserrat', sans-serif;
   }
@@ -1563,7 +1668,7 @@ footer {
     width: 90%;
     height: 300px;
     border: none;
-    margin-right: 5rem;
+    margin-right: 1rem;
     align-self: center;
   }
 
@@ -1583,7 +1688,6 @@ footer {
   .contact-text p {
     margin: 0;
   }
-
 }
 
 @media (min-width: 1280px) {
