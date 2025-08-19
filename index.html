@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>LabTest</title>
@@ -91,12 +92,12 @@
 
         <div class="gallery">
             <div class="gallery-track">
-                <img src="przykladowe-galeria.jpg" class="active" alt="Zdjęcie 1">
-                <img src="images.jpg" class="active" alt="Zdjęcie 1">
-                <img src="o_nas_2.jpg" class="active" alt="Zdjęcie 1">
-                <img src="o_nas_3.jpg" class="active" alt="Zdjęcie 1">
-                <img src="o_nas_4.jpg" class="active" alt="Zdjęcie 1">
-                <img src="pobrane.jpg" class="active" alt="Zdjęcie 1">
+                <img src="galeria_1.jpg" class="active" alt="Zdjęcie 1">
+                <img src="galeria_2.jpg" class="active" alt="Zdjęcie 1">
+                <img src="galeria_3.jpg" class="active" alt="Zdjęcie 1">
+                <img src="galeria_4.jpg" class="active" alt="Zdjęcie 1">
+                <img src="galeria_5.jpg" class="active" alt="Zdjęcie 1">
+                <img src="galeria_6.jpg" class="active" alt="Zdjęcie 1">
             </div>
         </div>
 
@@ -147,7 +148,7 @@
                 </div>
                 </div>
                 <div class="offer-photo">
-                    <img src="oferta.jpg" alt="zdjęcie">
+                    <img src="oferta-img.jpg" alt="zdjęcie">
                 </div>
             </div> 
         </div>
@@ -275,19 +276,19 @@
                 <div class="footer-item">
                     <img src="location.svg" alt="Lokalizacja" class="footer-icon" />
                     <div class="footer-text">
-                        <p>al. Wyzwolenia 70/00</p>
-                        <p>00-000 Szczecin</p>
+                        <p>al. Wyzwolenia 70/116 (wejście A)</p>
+                        <p>71-506 Szczecin</p>
                     </div>
                 </div>
 
                 <div class="footer-item">
                     <img src="tel.svg" alt="Telefon" class="footer-icon" />
-                    <p>+00 000 000 000</p>
+                    <p>+48 915 065 640</p>
                 </div>
 
                 <div class="footer-item">
                     <img src="email.svg" alt="E-mail" class="footer-icon" />
-                    <p>email@email.com</p>
+                    <p>office@labtest-ndt.pl</p>
                 </div>
             </div>
 
@@ -335,6 +336,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (href === currentPath) {
       link.classList.add('active');
     }
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const paragraphs = document.querySelectorAll(".accordion-content");
+
+  paragraphs.forEach(p => {
+    p.innerHTML = p.innerHTML.replace(
+      /\b[\p{L}]{8,}\b/gu,
+      word => {
+        const middle = Math.floor(word.length / 2);
+        return word.slice(0, middle) + "&shy;" + word.slice(middle);
+      }
+    );
   });
 });
 </script>
