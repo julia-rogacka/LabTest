@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/hyphenopoly@4.11.0/Hyphenopoly_Loader.js"></script>
+    <script>
+Hyphenopoly.config({
+    require: {
+        "pl": "FORCEHYPHENOPOLY"  // wymusza użycie reguł polskich
+    },
+    setup: {
+        classnames: {
+            "hyphenate": {} // każdemu elementowi z klasą .hyphenate wstawia poprawne podziały
+        }
+    }
+});
+</script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Certyfikaty</title>
 </head>
@@ -52,17 +65,18 @@
     </div>
 
     <div class="certificate-content">
+        <div class="certificate-row">
       <div class="certificate-left">
         <h2>Certyfikat DNV</h2>
-        <p>W naszej pracy stawiamy na najwyższe standardy jakości, bezpieczeństwa i rzetelności. Potwierdzeniem naszego profesjonalizmu jest certyfikat DNV – uznawany na całym świecie znak zgodności z międzynarodowymi normami w zakresie badań nieniszczących (NDT).</p>
-        <p>Certyfikat ten gwarantuje, że nasz personel został odpowiednio przeszkolony, posiada wymagane doświadczenie oraz zdał egzaminy zgodne z międzynarodową normą ISO 9712. Daje to naszym klientom pewność, że wszystkie badania prowadzone są z zachowaniem najwyższych standardów branżowych – zarówno pod względem technicznym, jak i proceduralnym.</p>
+        <p class="hyphenate">W naszej pracy stawiamy na najwyższe standardy jakości, bezpieczeństwa i rzetelności. Potwierdzeniem naszego profesjonalizmu jest certyfikat DNV – uznawany na całym świecie znak zgodności z międzynarodowymi normami w zakresie badań nieniszczących (NDT).</p>
+        <p class="hyphenate">Certyfikat ten gwarantuje, że nasz personel został odpowiednio przeszkolony, posiada wymagane doświadczenie oraz zdał egzaminy zgodne z międzynarodową normą ISO 9712. Daje to naszym klientom pewność, że wszystkie badania prowadzone są z zachowaniem najwyższych standardów branżowych – zarówno pod względem technicznym, jak i proceduralnym.</p>
       </div>  
       <div class="certificate-right">
         <a href="DNV-certificate.jpg" class="lightbox">
           <img src="DNV-certificate.jpg" alt="Opis" class="thumbnail">
         </a>
       </div>
-
+        </div>
         <div class="certificate-slogan">
             <h3>Certyfikat DNV to dla nas nie tylko dokument – to zobowiązanie do ciągłego doskonalenia i odpowiedzialności za jakość.</h3>
         </div>
@@ -88,7 +102,7 @@
                 <div class="footer-item">
                     <img src="location.svg" alt="Lokalizacja" class="footer-icon" />
                     <div class="footer-text">
-                        <p>al. Wyzwolenia 70/116 (wejście A)</p>
+                        <p>al. Wyzwolenia 70 (wejście A)</p>
                         <p>71-506 Szczecin</p>
                     </div>
                 </div>
@@ -156,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('click', e => {
             e.preventDefault();
             modal.style.display = 'flex';
-            modalImg.src = img.parentElement.href; // duży obraz z linka
+            modalImg.src = img.parentElement.href;
         });
     });
 
@@ -167,23 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const paragraphs = document.querySelectorAll(".certificate-left");
-
-  paragraphs.forEach(p => {
-    p.innerHTML = p.innerHTML.replace(
-      /\b[\p{L}]{8,}\b/gu,
-      word => {
-        const middle = Math.floor(word.length / 2);
-        return word.slice(0, middle) + "&shy;" + word.slice(middle);
-      }
-    );
-  });
-});
-</script>
-
 
 </body>
 </html>

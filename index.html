@@ -103,10 +103,13 @@
 
         <div class="offer">
             <h2>Oferta</h2>
-            <p id="description"></p>
+
 
             <div class="offer-content">
-                <div class="left-column">
+                <div class="left-column">            
+                    <p id="description">
+                        Nasza oferta obejmuje kompleksowe badania nieniszczące (NDT) konstrukcji stalowych, realizowane z najwyższą precyzją i zgodnie z międzynarodowymi standardami jakości — sprawdź, jak wspieramy niezawodność i bezpieczeństwo Twoich konstrukcji.
+                    </p>
                 <div class="accordion">
                     <div class="accordion-item">
                         <button class="accordion-header">Nadzory spawalnicze w pełnym zakresie odpowiedzialności IWE oraz IWI-C</button>
@@ -155,7 +158,6 @@
 
         <div class="methods">
             <h3>Metody badań</h3>
-            <p id="description"></p>
 
             <div class="methods-columns">
                 <!-- Kolumna 1 -->
@@ -235,7 +237,7 @@
 
                     <div class="methods-item">
                         <div class="methods-hidden">
-                            <img src="phased array.svg" alt="UT PA" class="m-icon"/>
+                            <img src="prozniowe.svg" alt="UT PA" class="m-icon"/>
                             <p>Badanie Próżniowe metodą pęcherzykową</p>
                         </div>
                         <div class="methods-open">
@@ -276,7 +278,7 @@
                 <div class="footer-item">
                     <img src="location.svg" alt="Lokalizacja" class="footer-icon" />
                     <div class="footer-text">
-                        <p>al. Wyzwolenia 70/116 (wejście A)</p>
+                        <p>al. Wyzwolenia 70 (wejście A)</p>
                         <p>71-506 Szczecin</p>
                     </div>
                 </div>
@@ -343,6 +345,22 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const paragraphs = document.querySelectorAll(".accordion-content");
+
+  paragraphs.forEach(p => {
+    p.innerHTML = p.innerHTML.replace(
+      /\b[\p{L}]{8,}\b/gu,
+      word => {
+        const middle = Math.floor(word.length / 2);
+        return word.slice(0, middle) + "&shy;" + word.slice(middle);
+      }
+    );
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const paragraphs = document.querySelectorAll(".offer #description");
 
   paragraphs.forEach(p => {
     p.innerHTML = p.innerHTML.replace(

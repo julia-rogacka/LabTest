@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Warstwa_2" data-name="Warstwa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 153.78 153.78">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Warstwa_2-2" data-name="Warstwa 2">
+    <rect width="153.78" height="153.78" rx="29.78" ry="29.78"/>
+    <ellipse class="cls-1" cx="114.44" cy="67.24" rx="26.29" ry="25.19"/>
+    <ellipse class="cls-1" cx="42" cy="67.24" rx="26.29" ry="25.19"/>
+    <rect class="cls-1" x="9.19" y="110.06" width="136.3" height="16.3"/>
+    <rect class="cls-1" x="111.48" y="90.94" width="6.74" height="24.37"/>
+    <rect class="cls-1" x="38.63" y="90.94" width="6.74" height="24.37"/>
+    <polygon points="51.66 50.51 39.99 77.23 34.36 73.98 51.66 50.51"/>
+    <polygon points="133.76 68.94 104.78 72.19 104.78 65.69 133.76 68.94"/>
+  </g>
+</svg>

@@ -50,53 +50,65 @@
 <div class="main-wrapper">
   <div class="r-main">
     <div class="realisations-gradient">
-        <h1>Realizacje</h1>
+      <h1>Realizacje</h1>
     </div>
 
-  <!-- KONTAINER KARUZELI -->
-  <div class="carousel-container">
-    <div class="carousel">
-      <!-- 1 -->
-      <div class="carousel-item" 
-           data-title="Projekt 1" 
-           data-location="Warszawa" 
-           data-date="2024" 
-           data-description="Opis projektu 1: krótki opis projektu.">
-        <img src="pobrane.jpg" alt="Projekt 1">
+      <div class="realisations-section">
+        <h2>NORDSEECLUSTER - NC 2 OFFSHORE WIND FARM</h2>
+
+        <div class="realisations-container">
+          <div class="realisations-left">
+            <div class="slider">
+              <button class="prev">&#10094;</button>
+              <div class="slides">
+                <img src="projekt_1.jpg" class="slide active" alt="Projekt 1">
+                <img src="projekt_2.jpg" class="slide" alt="Projekt 2">
+                <img src="projekt_3.jpg" class="slide" alt="Projekt 2">
+                <img src="projekt_4.jpg" class="slide" alt="Projekt 2">
+                <img src="projekt_5.jpg" class="slide" alt="Projekt 2">
+              </div>
+              <button class="next">&#10095;</button>
+
+              <!-- Kropki -->
+              <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="realisations-right">
+            <div class="project-details">
+              <p>Konstrukcje:</p>
+              <ul>
+                <li id="first">BOATLANDING</li>
+                <li>MAIN ACCESS PLATFORM</li>
+              </ul>
+            </div>
+
+            <div class="project-methods">
+              <p>Metody badań:</p>
+              <ul>
+                <li>wizualna (VT)</li>
+                <li>magnetyczno-proszkowa (MT)</li>
+                <li>penetrująca (PT)</li>
+                <li>ultradźwiękowa (UT)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- 2 -->
-      <div class="carousel-item" 
-           data-title="Projekt 2" 
-           data-location="Kraków" 
-           data-date="2023" 
-           data-description="Opis projektu 2: coś o realizacji, klient itd.">
-        <img src="pobrane.jpg" alt="Projekt 2">
+      <div class="summary-gradient">
+        <p id="bold">Każdy projekt to nasza obietnica jakości i innowacji.</p>
+        <p id="regular">
+          Skontaktuj się z nami i przekonaj się, jak spełniamy potrzeby naszych klientów.
+          <a href="kontakt.html">
+            <img src="strzalka2.svg" alt="Kontakt" class="cta-icon" />
+          </a>
+        </p>
       </div>
-
-      <!-- 3 -->
-      <div class="carousel-item" 
-           data-title="Projekt 3" 
-           data-location="Gdańsk" 
-           data-date="2022" 
-           data-description="Opis projektu 3: jeszcze jeden przykład.">
-        <img src="pobrane.jpg" alt="Projekt 3">
-      </div>
-    </div>
-
-    <!-- OPIS PROJEKTU (po kliknięciu) -->
-    <div class="project-detail">
-      <h2 class="project-title">Tytuł projektu</h2>
-      <div class="detail-line">
-        <span class="location">Miasto</span>
-        <span class="separator"></span>
-        <span class="date">Rok</span>
-      </div>
-      <p class="desc">Opis projektu</p>
-      <button onclick="closeDetail()">×</button>
-    </div>
   </div>
-</div>
 
 <footer>
     <div class="footer-desktop">
@@ -117,7 +129,7 @@
                 <div class="footer-item">
                     <img src="location.svg" alt="Lokalizacja" class="footer-icon" />
                     <div class="footer-text">
-                        <p>al. Wyzwolenia 70/116 (wejście A)</p>
+                        <p>al. Wyzwolenia 70 (wejście A)</p>
                         <p>71-506 Szczecin</p>
                     </div>
                 </div>
@@ -171,71 +183,42 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-  let scrollInterval;
-  let cloned = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const slidesContainer = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const dotsContainer = document.querySelector(".dots");
+  let current = 0;
 
-  function startCarousel() {
-    const carousel = document.querySelector('.carousel');
-    const itemWidth = carousel.children[0].offsetWidth + 16;
-
-    if (!cloned) {
-      const originalItems = [...carousel.children];
-      originalItems.forEach(item => {
-        const clone = item.cloneNode(true);
-        clone.classList.add('clone');
-        carousel.appendChild(clone);
-      });
-      cloned = true;
-    }
-
-    let scrollStep = 1;
-
-    scrollInterval = setInterval(() => {
-      carousel.scrollLeft += scrollStep;
-
-      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - itemWidth) {
-        carousel.scrollLeft = 0;
-      }
-    }, 20);
-  }
-
-  function stopCarousel() {
-    clearInterval(scrollInterval);
-  }
-
-  function showProject(element) {
-    stopCarousel();
-
-    const title = element.dataset.title;
-    const location = element.dataset.location;
-    const date = element.dataset.date;
-    const description = element.dataset.description;
-
-    document.querySelector('.project-title').innerText = title;
-    document.querySelector('.location').innerText = location;
-    document.querySelector('.date').innerText = date;
-    document.querySelector('.desc').innerText = description;
-
-    document.querySelectorAll('.carousel-item').forEach(item => item.classList.remove('active'));
-    element.classList.add('active');
-
-    document.querySelector('.carousel-container').classList.add('active');
-  }
-
-  function closeDetail() {
-    document.querySelector('.carousel-container').classList.remove('active');
-    document.querySelectorAll('.carousel-item').forEach(item => item.classList.remove('active'));
-    startCarousel();
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    startCarousel();
-
-    document.querySelectorAll('.carousel-item').forEach(item => {
-      item.addEventListener('click', () => showProject(item));
-    });
+  // Tworzymy kropki dynamicznie
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => showSlide(i));
+    dotsContainer.appendChild(dot);
   });
+
+  const dots = document.querySelectorAll(".dot");
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    slidesContainer.style.transform = `translateX(-${current * 100}%)`;
+
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[current].classList.add("active");
+  }
+
+  prevBtn.addEventListener("click", () => showSlide(current - 1));
+  nextBtn.addEventListener("click", () => showSlide(current + 1));
+
+  // Start od pierwszego slajdu
+  showSlide(current);
+});
 </script>
+
+
 </div>
 </body>
 </html>
