@@ -68,12 +68,7 @@
                 <img src="projekt_5.jpg" class="slide" alt="Projekt 2">
               </div>
               <button class="next">&#10095;</button>
-
-              <!-- Kropki -->
-              <div class="dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-              </div>
+              <div class="dots"></div>
             </div>
           </div>
 
@@ -108,7 +103,7 @@
           </a>
         </p>
       </div>
-  </div>
+    </div>
 
 <footer>
     <div class="footer-desktop">
@@ -184,37 +179,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const slidesContainer = document.querySelector(".slides");
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  const dotsContainer = document.querySelector(".dots");
-  let current = 0;
+  const slider = document.querySelector(".slider");
+  const track  = slider.querySelector(".slides");
+  const slides = Array.from(track.querySelectorAll(".slide"));
+  const prev   = slider.querySelector(".prev");
+  const next   = slider.querySelector(".next");
+  const dotsWrap = slider.querySelector(".dots");
 
-  // Tworzymy kropki dynamicznie
+  let index = 0;
+
+  // 1) Usuń kropki z HTML-a i zbuduj je od zera (to likwiduje „7 kropek”)
+  dotsWrap.innerHTML = "";
+
   slides.forEach((_, i) => {
     const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if (i === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => showSlide(i));
-    dotsContainer.appendChild(dot);
+    dot.className = "dot" + (i === 0 ? " active" : "");
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
   });
 
-  const dots = document.querySelectorAll(".dot");
+  const dots = Array.from(dotsWrap.children);
 
-  function showSlide(index) {
-    current = (index + slides.length) % slides.length;
-    slidesContainer.style.transform = `translateX(-${current * 100}%)`;
-
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[current].classList.add("active");
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
   }
 
-  prevBtn.addEventListener("click", () => showSlide(current - 1));
-  nextBtn.addEventListener("click", () => showSlide(current + 1));
+  function goTo(i) {
+    index = (i + slides.length) % slides.length; // zapętlenie
+    update();
+  }
 
-  // Start od pierwszego slajdu
-  showSlide(current);
+  prev.addEventListener("click", () => goTo(index - 1));
+  next.addEventListener("click", () => goTo(index + 1));
+
+  // start
+  update();
 });
 </script>
 

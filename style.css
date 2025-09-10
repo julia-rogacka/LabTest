@@ -558,7 +558,6 @@ footer {
   font-weight: 300;
 }
 
-
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -595,10 +594,6 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   margin: 0;
-}
-
-.footer-left {
-  margin-left: 1rem;
 }
 
 .footer-left p,
@@ -747,8 +742,7 @@ footer {
 
 .certificate-content {
   display: flex;
-  flex-direction: column; /* główny kierunek w kolumnie */
-  gap: 2rem;
+  flex-direction: column; 
   padding: 1rem;
   margin: 0 auto;
   font-family: 'Montserrat', sans-serif;
@@ -758,7 +752,6 @@ footer {
 .certificate-row {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .certificate-content h2 {
@@ -799,6 +792,7 @@ footer {
   background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
   border-radius: 2rem;
   padding: 1rem 1.5rem;
+  margin: 2rem auto;
   color: white;
   text-align: left;
   font-size: 1.2rem;
@@ -918,6 +912,7 @@ footer {
   margin: 1.5rem;
 }
 
+/* Tytuł */
 .realisations-section h2 {
   font-size: 1.7rem;
   font-weight: 600;
@@ -929,15 +924,12 @@ footer {
 
 .realisations-container {
   font-family: 'Montserrat', sans-serif;
-  padding: 1rem;
+  margin-top: 1.5rem;
   color: #333;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-
-/* Tytuł */
-
 
 /* Zdjęcie */
 .realisations-container img {
@@ -959,10 +951,17 @@ footer {
 }
 
 .slide {
-  min-width: 100%;
+  width: 100%;
   border-radius: 8px;
 }
 
+.slides .slide {
+  display: block !important;   /* nadpisuje wcześniejsze display:none */
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
 
 .slide.active {
   display: block;
@@ -982,33 +981,28 @@ footer {
 }
 
 .prev { 
-  left: -25px;  
+  left: 3.5rem;  
+  transform: translate(-120%, -50%); 
 }
 
 .next { 
-  right: -25px;  
+  right: 3.5rem;  
+  transform: translate(120%, -50%); 
 }
 
 /* kropki */
 .dots {
-  text-align: center;
-  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
 }
-
 .dot {
-  display: inline-block;
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: #bbb;
+  width: 8px; height: 8px;
   border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
+  background: #ccc;
 }
-
-.dot.active {
-  background-color: #333;
-}
+.dot.active { background: #333; }
 
 /* Sekcja konstrukcji */
 .project-details {
@@ -1752,7 +1746,6 @@ footer {
 
   .realisations-right {
     flex: 1; 
-    margin-top: 3.5rem;
   }
 
   /*KONTAKT*/
@@ -1902,7 +1895,7 @@ footer {
     text-decoration: none;
     padding: 0.3rem 0.5rem;
     color: #333;
-    font-size: 1.2rem I !important;
+    font-size: 1.3rem !important;
     font-family: 'Montserrat', sans-serif; 
   }
 
@@ -2066,7 +2059,7 @@ footer {
   .offer #description {
     display: block !important;
     text-align: justify;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin: 1rem 1.5rem 2rem 1.5rem;
   }
 
@@ -2253,6 +2246,10 @@ footer {
     margin: 5.3rem 0.3rem 0 0.3rem;
   }
 
+  .about-gradient h1 {
+    font-size: 2.5rem;
+  }
+
   .about-container {
     display: none;
   }
@@ -2271,7 +2268,6 @@ footer {
     flex-direction: row;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
-    line-height: 1.5;
     text-align: justify;
   }
 
@@ -2293,14 +2289,15 @@ footer {
     display: none;
   }
 
-  .text {
+  .text-desktop {
     display: flex;
     flex: 1 1 60%;
     flex-direction: column;
     justify-content: center;
   }
 
-  .text p {  
+  .text-desktop p {  
+    line-height: 1.7;
     margin-bottom: 1rem;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -2316,7 +2313,7 @@ footer {
   }
 
   .certificates-gradient h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .certificate-left {
@@ -2374,102 +2371,50 @@ footer {
     margin: 5.3rem 0.3rem 0 0.3rem;
   }
 
-  .carousel-container {
-    position: relative;
-    padding: 2rem;
-    font-family: 'Montserrat', sans-serif;
-    flex-direction: row;
-    align-items: flex-start;
+  .realisations-gradient h1 {
+    font-size: 2.5rem;
   }
 
-  .carousel {
-    display: flex;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    padding-bottom: 1rem; 
-    flex: 0 0 60%;
+  .realisations-section h2 {
+    font-size: 2rem;
   }
 
-  .carousel-item {
-    flex: 0 0 auto;
-    width: 300px;
-    cursor: pointer;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s;
+  .realisations-container {
+    flex-direction: row; 
+    gap: 3rem;
   }
 
-  .carousel-item img {
-    width: 100%;
-    display: block;
+  .realisations-left {
+    flex: 2;
   }
 
-  .carousel-item:hover {
-    transform: scale(1.03);
+  .realisations-right {
+    flex: 1; 
+    margin-top: 3.5rem;
   }
 
-/* Opis projektu */
-  .project-detail {
-    display: none;
-    margin-top: 2rem;
-    background: #f7f7f7;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    animation: fadeIn 0.3s ease-in-out;
-    position: relative;
-    margin: 0;
-    flex: 0 0 38%;
-    max-height: 100%;
-}
+  .project-details,
+  .project-methods {
+    margin: 1.5rem;
+  }
 
-  .project-title {
-    margin: 0 0 0.5rem;
+  .project-details p,
+  .project-methods p {
     font-size: 1.5rem;
-    color: #333;
   }
 
-  .detail-line {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-  }
-
-  .separator {
-    width: 5px;
-    height: 5px;
-    background: #666;
-    border-radius: 50%;
-    margin: 0 0.5rem;
-  }
-
-  .desc {
-    font-size: 1rem;
-    color: #444;
-  }
-
-/* Zamknięcie opisu */
-  .project-detail button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: #999;
-    cursor: pointer;
-  }
-
-  .project-detail button:hover {
-    color: #333;
+  .project-details li,
+  .project-methods li {
+    font-size: 1.3rem;
   }
 
 /*KONTAKT*/
   .contact-gradient {
     margin: 5.3rem 0.3rem 0 0.3rem;
+  }
+
+  .contact-gradient h1 {
+    font-size: 2.5rem;
   }
 
   .contact-columns {
@@ -2496,12 +2441,26 @@ footer {
     object-fit: cover;
     border-radius: 0 1rem 1rem 0;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+  }
 
   .container-contact {
     width: 100%; 
     padding: 1rem;
-}
+  }
+
+  .container-contact form p {
+    font-size: 1.7rem;
+  }
+
+  .container-contact input, 
+  .container-contact textarea {
+    font-size: 1.1rem;
+  }
+
+  .container-contact button {
+    font-size: 1.4rem;
+  }
+
 
   .info-column {
     display: block;
@@ -2510,6 +2469,7 @@ footer {
     justify-content: center;
     text-align: left;
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
     gap: 2rem;
     margin: 2.5rem 0;
     padding: 0 1rem;
@@ -2529,7 +2489,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    gap: 1.5rem;
+    gap: 1.7rem;
+    margin-bottom: 1.5rem;
   }
 
   .contact-item {
@@ -2549,7 +2510,7 @@ footer {
 
   .contact-text p {
     margin: 0;
-    text-align: justify;
+    text-align: left;
   }
 }
 
@@ -2914,7 +2875,6 @@ footer {
     gap: 4rem;
     flex-direction: row;
     font-family: 'Montserrat', sans-serif;
-    line-height: 1.5;
     font-size: 1.3rem;
     text-align: justify;
   }
@@ -2937,16 +2897,16 @@ footer {
     display: none;
   }
 
-  .text {
+  .text-desktop {
     display: flex;
     flex: 1 1 60%;
     flex-direction: column;
     justify-content: center;
   }
 
-  .text p {
-    text-align: justify;
-    margin-bottom: 1rem;
+   .text-desktop p {  
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
@@ -3014,107 +2974,46 @@ footer {
     width: 85%;
   }
 
-  /*Realizacje*/
+  /*REALIZACJE*/
   .realisations-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 5.3rem 0.3rem 0 0.3rem;
   }
 
   .realisations-gradient h1 {
     font-size: 2.5rem;
   }
 
-.carousel-container {
-    position: relative;
-    padding: 2rem;
-    font-family: 'Montserrat', sans-serif;
-    flex-direction: row;
-    align-items: flex-start;
+  .realisations-section h2 {
+    font-size: 2rem;
   }
 
-  .carousel {
-    display: flex;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    padding-bottom: 1rem; 
-    flex: 0 0 60%;
+  .realisations-container {
+    flex-direction: row; 
+    gap: 3rem;
   }
 
-  .carousel-item {
-    flex: 0 0 auto;
-    width: 300px;
-    cursor: pointer;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s;
+  .realisations-left {
+    flex: 2;
   }
 
-  .carousel-item img {
-    width: 100%;
-    display: block;
+  .realisations-right {
+    flex: 1; 
+    margin-top: 3.5rem;
   }
 
-  .carousel-item:hover {
-    transform: scale(1.03);
+  .project-details,
+  .project-methods {
+    margin: 1.5rem;
   }
 
-/* Opis projektu */
-  .project-detail {
-    display: none;
-    margin-top: 2rem;
-    background: #fff;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    animation: fadeIn 0.3s ease-in-out;
-    position: relative;
-    margin: 0;
-    flex: 0 0 38%;
-  }
-
-  .project-title {
-    margin: 0 0 0.5rem;
+  .project-details p,
+  .project-methods p {
     font-size: 1.5rem;
-    color: #333;
   }
 
-  .detail-line {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-  }
-
-  .separator {
-    width: 5px;
-    height: 5px;
-    background: #666;
-    border-radius: 50%;
-    margin: 0 0.5rem;
-  }
-
-  .desc {
-    font-size: 1rem;
-    color: #444;
-  }
-
-/* Zamknięcie opisu */
-  .project-detail button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: #999;
-    cursor: pointer;
-  }
-
-  .project-detail button:hover {
-    color: #333;
+  .project-details li,
+  .project-methods li {
+    font-size: 1.3rem;
   }
 
   /*KONTAKT*/
