@@ -24,7 +24,7 @@ html, body {
 
 .mobile-menu .topbar {
   background-color: white;
-  height: 7%;
+  height: auto;
   width: calc(100% - 0.6rem);
   display: flex;
   justify-content: space-between;
@@ -2590,7 +2590,7 @@ footer {
     text-decoration: none;
     padding: 0.3rem 0.5rem;
     color: #333;
-    font-size: 1.5rem !important;
+    font-size: 1.7rem !important;
     font-family: 'Montserrat', sans-serif; 
   }
 
@@ -2614,8 +2614,8 @@ footer {
   }
 
   .nav-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
   }
@@ -2626,7 +2626,7 @@ footer {
 
 /*HERO*/
   .hero {
-    padding: 5.5rem 0 1.5rem 0;
+    padding: 6.5rem 0 1.5rem 0;
     font-family: 'Montserrat', sans-serif;
     position: relative;
   }
@@ -2751,11 +2751,16 @@ footer {
     flex-direction: row;
     align-items: flex-start;
     align-items: stretch;
+    margin: 2rem 0 3rem 0;
   }
 
   .offer-photo {
     flex: 0 0 50%;
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dwa wiersze, dwie kolumny */
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem; /* odstęp między zdjęciami */
+    margin-top: 1rem;
   }
 
   .offer-photo img {
@@ -2763,14 +2768,14 @@ footer {
     height: 100%;
     border-radius: 20px;
     object-fit: cover;
-    align-content: left;
+    display: block;
   }
 
   .offer #description {
     display: block !important;
     text-align: justify;
     font-size: 1.6rem;
-    margin: 1rem 1.5rem 3rem 1.5rem;
+    margin: 3rem;
   }
 
   .left-column {
@@ -2786,6 +2791,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0 2rem 0 2rem;
     gap: 1rem;
   }
   
@@ -2799,7 +2805,7 @@ footer {
 
   .cta p {
     font-size: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   /*METODY*/
@@ -2886,7 +2892,7 @@ footer {
 
   /*ABOUT*/
   .about-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .about-gradient h1 {
@@ -2952,7 +2958,7 @@ footer {
 
   /*CERTYFIKATY*/
   .certificates-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .certificates-gradient h1 {
@@ -2965,7 +2971,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 2rem;
+    margin: 2rem;
   }    
 
   .certificate-row {
@@ -2974,7 +2980,7 @@ footer {
 
   .certificate-left p {
     font-size: 1.3rem;
-    margin-bottom: 1.2rem;
+    margin: 2rem;
     color: #333;
     text-align: justify;    
   }
@@ -3011,7 +3017,7 @@ footer {
 
   /*REALIZACJE*/
   .realisations-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .realisations-gradient h1 {
@@ -3019,7 +3025,7 @@ footer {
   }
 
   .realisations-section h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .realisations-container {
@@ -3038,7 +3044,7 @@ footer {
 
   .project-details,
   .project-methods {
-    margin: 1.5rem;
+    margin: 1.5rem 1.5rem 4rem 1.5rem;
   }
 
   .project-details p,
@@ -3053,7 +3059,7 @@ footer {
 
   /*KONTAKT*/
   .contact-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .contact-gradient h1 {
@@ -3155,7 +3161,7 @@ footer {
 
   .contact-text p {
     margin: 0;
-    text-align: justify;
+    text-align: left;
   }
 }
 
@@ -3205,7 +3211,7 @@ footer {
     text-decoration: none;
     padding: 0.3rem 0.5rem;
     color: #333;
-    font-size: 1.7rem !important;
+    font-size: 1.8rem !important;
     font-family: 'Montserrat', sans-serif; 
   }
 
@@ -3229,8 +3235,8 @@ footer {
   }
 
   .nav-icon {
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
   }
@@ -3241,7 +3247,7 @@ footer {
 
 /*HERO*/
   .hero {
-    padding: 5.5rem 0 1.5rem 0;
+    padding: 6.5rem 0 1.5rem 0;
     font-family: 'Montserrat', sans-serif;
     position: relative;
   }
@@ -3528,7 +3534,7 @@ footer {
 
   /*ABOUT*/
   .about-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .about-gradient h1 {
@@ -3594,7 +3600,7 @@ footer {
 
   /*CERTYFIKATY*/
   .certificates-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .certificates-gradient h1 {
@@ -3653,7 +3659,7 @@ footer {
 
   /*REALIZACJE*/
   .realisations-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .realisations-gradient h1 {
@@ -3687,7 +3693,7 @@ footer {
 
   .project-details,
   .project-methods {
-    margin: 1.5rem;
+    margin: 1.5rem 1.5rem 4rem 1.5rem;
   }
 
   .project-details p,
@@ -3707,7 +3713,7 @@ footer {
 
   /*KONTAKT*/
   .contact-gradient {
-    margin: 5.5rem 0.3rem 0 0.3rem;
+    margin: 6.5rem 0.3rem 0 0.3rem;
   }
 
   .contact-gradient h1 {
