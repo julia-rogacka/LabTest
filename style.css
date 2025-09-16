@@ -49,17 +49,11 @@ html, body {
   margin-top: 0.5rem;
 }
 
-.mobile-menu .hamburger-icon img {
-  height: 20px;
-  margin: 12px;
-  cursor: pointer;
-}
-
 /* DOMYŚLNIE menu ukryte */
 .hamburger_menu {
-  display: none;
+
   position: fixed;
-  top: 4.7rem;
+  top: 4.5rem;
   right: 0;
   width: 50%;
   margin-right: 0.6rem;
@@ -69,7 +63,18 @@ html, body {
   border-radius: 0 0 2rem 2rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+    /* ANIMACJA START */
+  transform: translateY(-20px); /* trochę nad ekranem */
+  opacity: 0;                   /* niewidoczne */
+  pointer-events: none;          /* brak interakcji */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Po otwarciu */
+.hamburger_menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .hamburger_menu ul {
@@ -95,6 +100,36 @@ html, body {
 .page-content {
   padding-top: 31px;
 }
+
+.hamburger-icon {
+  width: 20px;
+  height: 20px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  display: block;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* animacja w X */
+.hamburger-icon.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-icon.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-icon.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 
 /* Styl aktywnego linku */
 .nav-links a.active,
@@ -196,6 +231,7 @@ html, body {
   line-height: 1; 
   height: 40px;
 }
+
 .references-icon {
   background: none;       
   background-color: transparent; 
@@ -263,10 +299,9 @@ html, body {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-40%); /* bo duplikujemy obrazki */
+    transform: translateX(-40%); 
   }
 }
-
 
 /*Offer section*/
 .offer {
@@ -303,7 +338,6 @@ html, body {
   display: none;
 }
 
-
 /* Accordion */
 .accordion {
   display: flex;
@@ -338,7 +372,6 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Arrow icon (symbolizowane przez CSS, możesz też użyć SVG) */
 .accordion-header::after {
   content: "+";
   font-size: 1.2rem;
@@ -359,7 +392,7 @@ html, body {
   font-size: 0.95rem;
   color: #000;
   transition: max-height 0.3s ease;
-  text-align: justify;
+  text-align: left;
 }
 
 .accordion-content p {
@@ -367,11 +400,10 @@ html, body {
 }
 
 .accordion-item.active .accordion-content {
-  max-height: 400px; /* dopasuj do treści */
+  max-height: 400px;
   padding-bottom: 1rem; 
   background: 
     linear-gradient(90deg, rgba(157,46,48,0.3), rgba(61,81,157,0.3)) padding-box;
-
 }
 
 /* CTA */
@@ -384,8 +416,8 @@ html, body {
 .cta p {
   display: inline-block;
   background: 
-    linear-gradient(#fff, #fff) padding-box, /* środek */
-    linear-gradient(90deg, #9D2E30, #3d519d) border-box; /* obramowanie */
+    linear-gradient(#fff, #fff) padding-box, 
+    linear-gradient(90deg, #9D2E30, #3d519d) border-box; 
   border: 0.2rem solid transparent; 
   color: #333;
   padding: 0.8rem 1.5rem;
@@ -397,7 +429,7 @@ html, body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/*Methods*/
+/*METODY*/
 h3 {
   background: linear-gradient(90deg, #9D2E30, #3d519d);
   padding: 0.2rem 1rem;
@@ -474,7 +506,7 @@ h3 {
   left: 0;
   max-width: 100%; 
   height: 100%;
-  font-size: 14px;
+  font-size: 1rem;
   padding: 0.5rem;
   background: #fff;
   display: flex;
@@ -541,7 +573,7 @@ h3 {
   margin: 0.5rem;
 }
 
-/*Footer*/
+/*FOOTER*/
 footer {
   padding: 1rem;
   background-color: white;
@@ -565,7 +597,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 1.5rem;
+  margin: 1rem;
 }
 
 .footer-logo {
@@ -575,7 +607,7 @@ footer {
 
 .social-icons {
   display: flex;
-  gap: 1rem; /* odstęp między ikonami */
+  gap: 1rem;
   align-items: center;
 }
 
@@ -597,6 +629,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   margin: 0;
+  gap: 1rem;
 }
 
 .footer-left p,
@@ -713,7 +746,7 @@ footer {
   font-size: 1rem;
   line-height: 1.6;
   color: #333;
-  text-align: justify;
+  text-align: left;
   width: 100%;       
 }
 
@@ -725,7 +758,7 @@ footer {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
-/*CERTIFICATE*/
+/*CERTYFIKATY*/
 .certificates-gradient {
   background: linear-gradient(90deg, #9D2E30 0%, #3d519d 100%);
   border-radius: 1.5rem;
@@ -751,10 +784,10 @@ footer {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* grupa tekst + zdjęcie */
 .certificate-row {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .certificate-content h2 {
@@ -763,28 +796,32 @@ footer {
   color: #1d253f;
 }
 
-.certificate-content p {
+.certificate-left h2 {
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  text-align: justify;
+  font-weight: 500;
 }
-
-.hyphenate p {
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  overflow-wrap: break-word;
-  text-align: justify;
-}
-
-
-/* Tekstowa część (tytuł, treść, slogan) */
+  
 .certificate-left {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
+  min-width: 250px;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;    
 }
 
-/* Prawa kolumna ze zdjęciem */
+.certificate-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem; 
+  color: #333;
+  text-align: left;
+}
+
 .certificate-right {
   display: flex;
   justify-content: center;
@@ -801,29 +838,6 @@ footer {
   font-size: 1.2rem;
   font-weight: 400;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.certificate-left {
-  flex: 1;
-  min-width: 250px;
-  max-width: 750px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;    
-}
-
-.certificate-left h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-  
-.certificate-left p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.2rem; 
-  color: #333;
-  text-align: justify;
 }
 
 .certificate-img {
@@ -974,7 +988,7 @@ footer {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   color: #fff;
   border: none;
   padding: 0.7rem 1rem;
@@ -993,7 +1007,6 @@ footer {
   transform: translate(120%, -50%); 
 }
 
-/* kropki */
 .dots {
   display: flex;
   justify-content: center;
@@ -1227,7 +1240,7 @@ footer {
 
   .key_words {
     position: absolute !important;
-    top: 7.5rem;
+    top: 8.5rem;
     right: 2rem;
     width: auto;
     display: flex;
@@ -1249,7 +1262,6 @@ footer {
     background: none;
   }
 
-  /* references (lewa strona) */
   .references {
     flex-direction: row;
     width: 100%;
@@ -1291,7 +1303,7 @@ footer {
     font-size: 1rem;
   }
 
-  /*About*/
+  /*O NAS*/
   .about-container-desktop {
     display: none;
   }
@@ -1300,7 +1312,7 @@ footer {
     margin: 5.5rem 0.3rem 0 0.3rem;
   }
 
-  /*Ceryfikaty*/
+  /*CERTYFIKATY*/
   .certificates-gradient {
     margin: 5.5rem 0.3rem 0 0.3rem;
   }
@@ -1321,7 +1333,7 @@ footer {
     height: auto;
   }
 
-  /*Realizacje*/
+  /*REALIZACJE*/
   .realisations-gradient {
     margin: 5.5rem 0.3rem 0 0.3rem;
   }
@@ -1422,7 +1434,6 @@ footer {
   }
 }
 
-
 @media (min-width: 769px) and (max-width:1024px) {
   .topbar {
     display: grid;
@@ -1502,7 +1513,7 @@ footer {
   }
 
   .key_words {
-    top: 7rem;
+    top: 6.5rem;
   }
 
   /*HERO*/
@@ -1739,13 +1750,6 @@ footer {
     text-align: justify;
     font-size: 16px;
     margin-bottom: 1rem;
-
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    max-width: 70ch;
   }
 
   /*CERTYFIKATY*/
@@ -1809,16 +1813,16 @@ footer {
     width: 48%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* wyśrodkowanie w pionie */
-    align-items: center; /* wyśrodkowanie w poziomie */
-    text-align: justify; /* wyjustowany tekst */
+    justify-content: center; 
+    align-items: center; 
+    text-align: justify;
     padding: 2rem;
     align-items: stretch;
   }
 
   .container-contact p {
-    text-align: justify; /* tekst wyjustowany */
-    width: 100%; /* żeby działało pełne justowanie */
+    text-align: justify; 
+    width: 100%; 
   }
 
   .info-column {
@@ -1894,7 +1898,7 @@ footer {
   }
 
   .logo {
-    height: 3.7rem !important;
+    height: 4rem !important;
     align-self: center;
   }
 
@@ -2012,11 +2016,12 @@ footer {
   }
 
   .hero-icon {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     align-self: flex-end;
     position: absolute;
     margin-left: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .key_words {
@@ -2032,7 +2037,7 @@ footer {
   }
 
   .key_words p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 200;
     padding: 0.3rem 0.8rem;
     border-radius: 33px;
@@ -2043,7 +2048,6 @@ footer {
     background: none;
   }
 
-  /* references (lewa strona) */
   .references {
     flex-direction: row;
     width: 100%;
@@ -2107,9 +2111,9 @@ footer {
 
   .offer #description {
     display: block !important;
-    text-align: justify;
+    text-align: left;
     font-size: 1.2rem;
-    margin: 3rem;
+    margin: 1rem 1rem 2rem 1.5rem;
   }
 
   .left-column {
@@ -2136,6 +2140,7 @@ footer {
 
   .cta p {
     font-size: 1.2rem;
+    margin-top: 1rem;
   }
 
   /*METODY*/
@@ -2151,7 +2156,7 @@ footer {
   }
 
   .methods-column {
-    display: contents; /* pozwala ignorować ten element jako warstwę strukturalną */
+    display: contents;
   }
 
   .methods-item {
@@ -2211,7 +2216,6 @@ footer {
     height: 60px; 
     width: auto;
     display: block;
-
   }
 
   .footer-top .social-icons {
@@ -2277,13 +2281,13 @@ footer {
     color: #666;
   }
 
-/*O NAS*/
+  /*O NAS*/
   .about-gradient {
     margin: 5.3rem 0.3rem 0 0.3rem;
   }
 
   .about-gradient h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .about-container {
@@ -2303,7 +2307,7 @@ footer {
     gap: 4rem;
     flex-direction: row;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-align: justify;
   }
 
@@ -2349,7 +2353,7 @@ footer {
   }
 
   .certificates-gradient h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .certificate-left {
@@ -2408,11 +2412,12 @@ footer {
   }
 
   .realisations-gradient h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .realisations-section h2 {
     font-size: 2rem;
+    margin: 3rem 0 0 7rem;
   }
 
   .realisations-container {
@@ -2429,6 +2434,18 @@ footer {
     margin-top: 3.5rem;
   }
 
+  .slider {
+    width: 85%;
+    margin: 3rem 5rem 3rem 7rem;
+  }
+
+  .prev,
+  .next {
+    width: 45px;
+    height: 45px;
+    margin: 1rem;
+  }
+
   .project-details,
   .project-methods {
     margin: 1.5rem;
@@ -2441,7 +2458,7 @@ footer {
 
   .project-details li,
   .project-methods li {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
 /*KONTAKT*/
@@ -2450,7 +2467,7 @@ footer {
   }
 
   .contact-gradient h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .contact-columns {
@@ -2699,7 +2716,7 @@ footer {
   }
 
   .key_words p {
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 200;
     padding: 0.3rem 0.8rem;
     border-radius: 33px;
@@ -2710,7 +2727,6 @@ footer {
     background: none;
   }
 
-  /* references (lewa strona) */
   .references {
     flex-direction: row;
     width: 100%;
@@ -2750,7 +2766,7 @@ footer {
 
   /*OFERTA*/
   .offer h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .offer-content {
@@ -2763,9 +2779,9 @@ footer {
   .offer-photo {
     flex: 0 0 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* dwa wiersze, dwie kolumny */
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem; /* odstęp między zdjęciami */
+    gap: 1rem; 
     margin-top: 1rem;
   }
 
@@ -2779,9 +2795,9 @@ footer {
 
   .offer #description {
     display: block !important;
-    text-align: justify;
+    text-align: left;
     font-size: 1.6rem;
-    margin: 3rem;
+    margin: 1rem 1rem 2rem 1.5rem;
   }
 
   .left-column {
@@ -2816,7 +2832,7 @@ footer {
 
   /*METODY*/
   .methods h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .methods-columns {
@@ -2896,7 +2912,7 @@ footer {
     font-size: 1.2rem;
   }
 
-  /*ABOUT*/
+  /*O NAS*/
   .about-gradient {
     margin: 6.5rem 0.3rem 0 0.3rem;
   }
@@ -3051,6 +3067,13 @@ footer {
   .slider {
     width: 100%;
     margin: 3rem 5rem 3rem 10rem;
+  }
+
+  .prev,
+  .next {
+    width: 55px;
+    height: 55px;
+    margin: 1rem;
   }
 
   .project-details,
@@ -3400,9 +3423,9 @@ footer {
 
   .offer #description {
     display: block !important;
-    text-align: justify;
+    text-align: left;
     font-size: 1.6rem;
-    margin: 3rem;
+    margin: 1rem 1rem 2rem 1.5rem;
   }
 
   .left-column {
@@ -3700,6 +3723,13 @@ footer {
   .slider {
     width: 100%;
     margin: 3rem 5rem 3rem 10rem;
+  }
+
+  .prev,
+  .next {
+    width: 65px;
+    height: 65px;
+    margin: 2rem;
   }
 
   .project-details,

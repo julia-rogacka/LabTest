@@ -16,7 +16,9 @@
 
             <!-- Hamburger (mobile) -->
             <div class="hamburger-icon" id="hamburgerBtn">
-                <img src="menu.png" alt="Menu" />
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
             <!-- Menu desktop (ukryte na mobile) -->
@@ -204,17 +206,13 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const paragraphs = document.querySelectorAll(".about-container .text p");
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-  paragraphs.forEach(p => {
-    p.innerHTML = p.innerHTML.replace(
-      /\b[\p{L}]{8,}\b/gu,
-      word => {
-        const middle = Math.floor(word.length / 2);
-        return word.slice(0, middle) + "&shy;" + word.slice(middle);
-      }
-    );
+  hamburgerBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+    hamburgerBtn.classList.toggle("active"); // dodaje animację do ikony
   });
 });
 </script>
