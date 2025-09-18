@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">   
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Kontakt</title>
 </head>
@@ -31,7 +32,7 @@
                     <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
                 <div class="nav-icons">
-                    <a href="https://pl.linkedin.com/company/labtest-sp-z-o-o?trk=public_post_follow-view-profile" target="_blank">
+                    <a href="https://linkedin.com" target="_blank">
                         <img src="linkedin.svg" alt="LinkedIn" class="nav-icon" />
                     </a>
                 </div>
@@ -62,7 +63,7 @@
         <div class="container-contact">
             <form action="https://api.web3forms.com/submit" method="POST">
                 <p>Wyślij nam wiadomość</p>
-                <input type="hidden" name="access_key" value="d9711f72-e15d-4eed-87ea-4a23354ab957">
+                <input type="hidden" name="access_key" value="c04bb4f8-587a-446a-ac58-0c0a48ff538b">
                 
                 <input type="text" name="name" placeholder="Imię i Nazwisko">
                 <input type="email" name="email" placeholder="Adres e-mail">
@@ -186,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   hamburgerBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("open");
-    hamburgerBtn.classList.toggle("active"); 
+    hamburgerBtn.classList.toggle("active"); // dodaje animację do ikony
   });
 });
 </script>
