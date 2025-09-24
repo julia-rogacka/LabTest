@@ -51,7 +51,6 @@ html, body {
 
 /* DOMYŚLNIE menu ukryte */
 .hamburger_menu {
-
   position: fixed;
   top: 4.5rem;
   right: 0;
@@ -282,7 +281,7 @@ html, body {
   display: flex;
   gap: 0.7rem;
   width: max-content;
-  animation: scroll 45s linear infinite; /* czas trwania przesuwu */
+  animation: scroll 45s linear infinite; 
 }
 
 .gallery-track img {
@@ -358,6 +357,7 @@ html, body {
   width: 100%;
   text-align: left;
   background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 1rem;
   font-size: 1rem;
@@ -457,10 +457,6 @@ h3 {
   min-width: 0;
 }
 
-.methods-hover {
-  display: content;
-}
-
 .methods-item {
   background: #fff;
   border-radius: 16px;
@@ -515,11 +511,20 @@ h3 {
   z-index: 2;
 }
 
-.methods-item:hover .methods-open {
+@media (hover: hover) {
+  .methods-item:hover .methods-open {
+    opacity: 1;
+  }
+  .methods-item:hover .methods-hidden {
+    opacity: 0;
+  }
+}
+
+.methods-item.active .methods-open {
   opacity: 1;
 }
 
-.methods-item:hover .methods-hidden {
+.methods-item.active .methods-hidden {
   opacity: 0;
 }
 
@@ -675,6 +680,8 @@ footer {
   align-items: flex-start;
   gap: 0.7rem;
   margin: 0.7rem 0;
+  text-decoration: none;
+  color: #333;
   align-items: center;
 }
 
