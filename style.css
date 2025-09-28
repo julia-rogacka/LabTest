@@ -619,6 +619,34 @@ footer {
   height: auto;
 }
 
+.top-info {
+   display: flex;
+   flex-direction: column;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.legal-links {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.legal-links a {
+  font-size: 0.9rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.legal-links a:hover {
+  text-decoration: underline;
+}
+
 .social-icons {
   display: flex;
   gap: 1rem;
@@ -1198,6 +1226,49 @@ footer {
   background-color: #7a2223;
 }
 
+/*RODO*/
+.rodo-text {
+  margin: 2rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.rodo-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  width: 100%;
+  margin: 0.5rem;       
+}
+
+/*COOKIES*/
+.cookies-text {
+  margin: 2rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cookies-text p, 
+.cookies-text ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  width: 100%;
+  margin: 0.5rem;       
+}
+
 @media (min-width: 650px) {
   /*HERO*/
   .hero {
@@ -1575,7 +1646,7 @@ footer {
     font-size: 1.8rem;
   }
 
-  .offer-content {
+ .offer-content {
     flex-direction: row;
     align-items: flex-start;
     align-items: stretch;
@@ -1679,6 +1750,12 @@ footer {
     height: 40px; 
     width: auto;
     display: block;
+  }
+
+    .legal-links {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0; /* żeby się ładnie wyrównało */
   }
 
   .footer-top .social-icons {
