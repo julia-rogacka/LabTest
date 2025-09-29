@@ -1691,8 +1691,9 @@ footer {
   }
 
   .offer-photo img {
+    aspect-ratio: 1 / 1.5;
     width: 100%;
-    height: 100%;
+    height: auto;  
     border-radius: 20px;
     object-fit: cover;
     display: block;
@@ -2323,7 +2324,19 @@ footer {
   }
 
   .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
     font-size: 1rem;
+    color: #000;
+    transition: max-height 0.3s ease;
+    text-align: left;
+  }
+
+  .accordion-item.active .accordion-content {
+    padding-bottom: 1rem; 
+    background: 
+      linear-gradient(90deg, rgba(157,46,48,0.3), rgba(61,81,157,0.3)) padding-box;
   }
 
   .cta p {
@@ -3027,7 +3040,19 @@ footer {
   }
 
   .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
     font-size: 1.3rem;
+    color: #000;
+    transition: max-height 0.3s ease;
+    text-align: left;
+  }
+
+  .accordion-item.active .accordion-content {
+    padding-bottom: 1rem; 
+    background: 
+      linear-gradient(90deg, rgba(157,46,48,0.3), rgba(61,81,157,0.3)) padding-box;
   }
 
   .cta p {
@@ -3672,9 +3697,20 @@ footer {
   }
 
   .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
     font-size: 1.3rem;
+    color: #000;
+    transition: max-height 0.3s ease;
+    text-align: left;
   }
 
+  .accordion-item.active .accordion-content {
+    padding-bottom: 1rem; 
+    background: 
+      linear-gradient(90deg, rgba(157,46,48,0.3), rgba(61,81,157,0.3)) padding-box;
+  }
   .cta {
     margin: 4rem;
   }
