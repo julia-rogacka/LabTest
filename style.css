@@ -1412,15 +1412,15 @@ footer {
     text-align: left;
   }
 
-.legal-links a {
-  font-size: 0.9rem;
-  color: #000;
-  text-decoration: none;
-}
+  .legal-links a {
+    font-size: 0.9rem;
+    color: #000;
+    text-decoration: none;
+  }
 
-.legal-links a:hover {
-  text-decoration: underline;
-}
+  .legal-links a:hover {
+    text-decoration: underline;
+  }
 
   .footer-columns{
     margin: 0 2rem;
@@ -1678,13 +1678,13 @@ footer {
     flex-direction: row;
     align-items: flex-start;
     align-items: stretch;
-    margin: 1rem 0 3rem 0;
+    margin: 2rem 0 3rem 0;
   }
 
   .offer-photo {
     flex: 0 0 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1rem; 
     margin-top: 1rem;
@@ -1696,10 +1696,6 @@ footer {
     border-radius: 20px;
     object-fit: cover;
     display: block;
-  }
-
-  .offer-img {
-    display: none;
   }
 
   .left-column {
