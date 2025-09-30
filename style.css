@@ -1025,7 +1025,7 @@ footer {
 }
 
 .slides .slide {
-  display: block !important;   /* nadpisuje wcześniejsze display:none */
+  display: block !important; 
   flex: 0 0 100%;
   width: 100%;
   height: auto;
