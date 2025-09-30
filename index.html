@@ -126,35 +126,35 @@
                         Nasza oferta obejmuje kompleksowe badania nieniszczące (NDT) konstrukcji stalowych, realizowane z najwyższą precyzją i zgodnie z międzynarodowymi standardami jakości — sprawdź, jak wspieramy niezawodność i bezpieczeństwo Twoich konstrukcji.
                     </p>
                 <div class="accordion">
-                    <div class="accordion-item">
+                    <div class="accordion-item fade-in">
                         <button class="accordion-header">Nadzory spawalnicze w pełnym zakresie odpowiedzialności IWE oraz IWI-C</button>
                         <div class="accordion-content">
                             <p>Prowadzimy pełen nadzór nad procesami spawalniczymi – od przygotowania do odbioru końcowego. Dbamy o zgodność z dokumentacją techniczną, normami i wymaganiami jakościowymi. Wspieramy również zespoły produkcyjne w bieżącym rozwiązywaniu problemów technologicznych.</p>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item fade-in">
                         <button class="accordion-header">Weryfikacja spawaczy i operatorów (szkolenia, egzaminy)</button>
                         <div class="accordion-content">
                             <p>Organizujemy i prowadzimy procesy kwalifikacyjne dla spawaczy i operatorów urządzeń spawalniczych. Zapewniamy przygotowanie do egzaminów, przeprowadzamy próby oraz wystawiamy wymagane certyfikaty – zgodnie z normami EN ISO 9606 oraz EN ISO 14732.</p>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item fade-in">
                         <button class="accordion-header">Kwalifikowanie technologii spawania wg obowiązujących norm</button>
                         <div class="accordion-content">
                             <p>Oferujemy kompleksową usługę opracowania i kwalifikowania technologii spawania zgodnie z normami EN ISO 15614. W zakres wchodzą przygotowanie procedur WPS, realizacja prób technologicznych, nadzór nad badaniami oraz opracowanie dokumentacji WPQR.</p>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item fade-in">
                         <button class="accordion-header">Wdrożenia norm EN 1090, ISO 3834 (kompleksowa usługa od procedur po audyt, 100% skuteczności)</button>
                         <div class="accordion-content">
                             <p>Pomagamy w pełnym procesie wdrożenia norm związanych z produkcją konstrukcji stalowych. Oferujemy gotowe procedury, szkolenia, audyty wewnętrzne oraz doradztwo na każdym etapie przygotowań do certyfikacji – z gwarancją skuteczności.</p>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
+                    <div class="accordion-item fade-in">
                         <button class="accordion-header">Doradztwo w zakresie spawalnictwa</button>
                         <div class="accordion-content">
                             <p>Oferujemy kompleksową usługę opracowania i kwalifikowania technologii spawania zgodnie z normami EN ISO 15614. W zakres wchodzą przygotowanie procedur WPS, realizacja prób technologicznych, nadzór nad badaniami oraz opracowanie dokumentacji WPQR.</p>
@@ -393,6 +393,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll('.accordion-item');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 250); // opóźnienie 250ms na każdy element
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    items.forEach(item => observer.observe(item));
+});
+</script>
 
 <script>
 document.querySelectorAll(".methods-item").forEach(item => {
