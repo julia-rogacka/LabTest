@@ -1405,8 +1405,11 @@ footer {
   }
 
   .footer-item {
-    text-decoration: none;
-    color: #333;
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    align-items: center;
   }
   
   .links {
@@ -1840,8 +1843,10 @@ footer {
   }
 
   .footer-item {
-    text-decoration: none;
-    color: #333;
+    pointer-events: none !important;
+    cursor: default !important;
+    text-decoration: none !important;
+    color: #333 !important;
   }
 
   .footer-icon {
